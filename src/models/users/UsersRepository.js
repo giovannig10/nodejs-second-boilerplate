@@ -14,5 +14,11 @@ class UsersRepository {
         this.users.push(newUser);
         return newUser;
     }
+    getUserbyid(id) {
+        const user = this.users.find((user) => user.id == id);
+
+        return user
 }
+}
+
 export default UsersRepository;

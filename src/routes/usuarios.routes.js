@@ -28,5 +28,21 @@ usuariosRoutes.post("/", (req, res) => {
   });
 });
 
+usuariosRoutes.get("/:id", (req, res) => {
+  const { id } = req.params;
+  const user = usersRepository.getUserbyid(id);
+  
+  if (!user) {
+      return res.status(404).json({
+          message: `Usuário com id ${id} não encontrado`,
+      });
+  }
+
+  return res.status(200).json({
+      message: `Usuário com id ${id} encontrado`,
+      user,
+  });
+});
+
 
 export default usuariosRoutes;
