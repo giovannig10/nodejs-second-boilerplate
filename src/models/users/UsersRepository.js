@@ -33,5 +33,18 @@ updateUser(id, name, email, password) {
 
     return user;
 }
+
+deleteUser(id) {
+    const user = this.getUserbyid(id);
+
+    if (!user) {
+        return null;
+    }
+
+    const index = this.users.indexOf(user);
+    this.users.splice(index, 1);
+
+    return user;
+}
 }
 export default UsersRepository;
